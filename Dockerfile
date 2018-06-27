@@ -1,5 +1,5 @@
 # bushmen quote website(bushmen-site)
-FROM        php:7.0-apache
+FROM       php:7.1.2-apache
 #EXPOSE 80
 MAINTAINER  Daniel
 

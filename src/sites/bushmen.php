@@ -40,13 +40,13 @@
       <li class="nav-item">
         <a class="nav-link" href="addQuote.php">Add Quote</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="#">About</a>
-      </li>
+      </li> -->
     </ul>
       <form method="POST" class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" name="SearchVAR" placeholder="Search" type="text" value="<?php if(isset($_POST['SearchVAR'])) echo $_POST['SearchVAR'];?>">
-        <button class="btn btn-secondary my-2 my-sm-0" name="search" type="submit">Search</button>
+        <button class="btn btn-secondary my-2 my-sm-0 bg-dark" name="search" type="submit">Search</button>
       </form>
     </div>
   </nav>
@@ -108,10 +108,10 @@
             <div class="col-lg-12">
               <ul class="list-unstyled">
                 <li class="float-lg-right"><a href="#top">Back to top</a></li>
-                <li><a href="https://github.com/thomaspark/bootswatch/">GitHub</a></li>
+                <li><a href="https://github.com/Marist-Bushmen/Bushmen">GitHub</a></li>
               </ul>
-              <p>Made by <a href="dgisolfi.php">Daniel Gisolfi</a>.</p>
-              <p>Code released under the <a href="https://github.com/thomaspark/bootswatch/blob/master/LICENSE">MIT License</a>.</p>
+              <p>Made by <a href="http://www.dgisolfi.xyz">Daniel Gisolfi</a>.</p>
+              <p>Code released under the <a href="https://github.com/Marist-Bushmen/Bushmen/blob/master/LICENSE">Apache License</a>.</p>
             </div>
           </div>
         </footer>

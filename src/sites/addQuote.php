@@ -27,14 +27,14 @@ require('../scripts/search_db.php');
     <title>Bushmen - Quotes</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/darkly/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/cyborg/bootstrap.min.css" >
   </head>
   <body>
 
     <!-- navbar -->
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="bushmen.php">Bushmen</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -48,15 +48,15 @@ require('../scripts/search_db.php');
       <li class="nav-item active">
         <a class="nav-link" href="addQuote.php">Add Quote</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="#">About</a>
-      </li>
+      </li> -->
     </ul>
 
     </div>
   </nav>
 
-    <div class="jumbotron jumbotron-fluid text-white bg-primary text-center">
+    <div class="jumbotron jumbotron-fluid text-white bg-dark text-center">
         <div class="container" style="height="10%"">
           <h1>Add Quote</h1>
           <p>Add a new quote to the list! All existing quotes can be found on the home page. Context is not required all however other fields are. Make sure the date is in YYYY-MM-DD format, and don't include the time.</p>
@@ -68,7 +68,7 @@ require('../scripts/search_db.php');
              <div class="modal-content">
                  <div class="modal-header">
                      <h2 class="modal-title">Quote Added!</h2>
-                     <button type="button" class="close" data-dismiss="modal">
+                     <button type="button" class="close bg-dark" data-dismiss="modal">
                          <span>&times;</span>
                      </button>
                  </div>
@@ -95,39 +95,39 @@ require('../scripts/search_db.php');
 
     <div class="container text-muted w-75">
       <div class="card mb-3">
-        <h3 class="card-header">Add Record</h3>
+        <h3 class="card-header text-light">Add Record</h3>
         <div class="card-body">
         <div id="entryform" class="content-wrap">
             <!-- <p class="card-text">Add a new quote to the list! All existing quotes can be found on the home page. Context is not required all however other fields are. Make sure the date is in YYYY-MM-DD format, and don't include the time.</p> -->
             <form method="POST">
               <div class="form-group row">
-                <label for="author" class="col-sm-2 col-form-label">Name</label>
+                <label for="author" class="col-sm-2 col-form-label text-light">Name</label>
                 <div class="col-sm-10">
                   <input class="form-control" id="text" name="author" value="<?php if(isset($_POST['author'])) echo $_POST['author'];?>" placeholder="John Doe" required>
                 </div>
               </div>
 
               <div class="form-group row">
-                <label for="quote" class="col-sm-2 col-form-label">Quote</label>
+                <label for="quote" class="col-sm-2 col-form-label text-light">Quote</label>
                 <div class="col-sm-10">
                   <input class="form-control" id="text" name="quote" value="<?php if(isset($_POST['quote'])) echo $_POST['quote'];?>" placeholder="Our God is an awesome God" required>
                 </div>
               </div>
 
               <div class="form-group row">
-                <label for="author" class="col-sm-2 col-form-label">Context</label>
+                <label for="author" class="col-sm-2 col-form-label text-light">Context</label>
                 <div class="col-sm-10">
                   <input class="form-control" id="text" name="q_descr" value="<?php if(isset($_POST['q_descr'])) echo $_POST['q_descr'];?>" placeholder="While Drunk of Mead">
                 </div>
               </div>
 
               <div class="form-group row">
-                <label for="author" class="col-sm-2 col-form-label">Date</label>
+                <label for="author" class="col-sm-2 col-form-label text-light">Date</label>
                 <div class="col-sm-10">
                   <input class="form-control" name="q_date" type="date" value="<?php if(isset($_POST['q_date'])) echo $_POST['q_date'];?>" required>
                 </div>
               </div>
-                 <input type="submit" class="btn btn-primary btn-lg btn-block" name="addQuote" value="Add Quote">
+                 <input type="submit" class="btn btn-light btn-lg btn-block" name="addQuote" value="Add Quote">
              </form>
          </div>
       </div>
@@ -139,10 +139,10 @@ require('../scripts/search_db.php');
             <div class="col-lg-12">
               <ul class="list-unstyled">
                 <li class="float-lg-right"><a href="#top">Back to top</a></li>
-                <li><a href="https://github.com/thomaspark/bootswatch/">GitHub</a></li>
+                <li><a href="https://github.com/Marist-Bushmen/Bushmen">GitHub</a></li>
               </ul>
-              <p>Made by <a href="dgisolfi.php">Daniel Gisolfi</a>.</p>
-              <p>Code released under the <a href="https://github.com/thomaspark/bootswatch/blob/master/LICENSE">MIT License</a>.</p>
+              <p>Made by <a href="http://www.dgisolfi.xyz">Daniel Gisolfi</a>.</p>
+              <p>Code released under the <a href="https://github.com/Marist-Bushmen/Bushmen/blob/master/LICENSE">Apache License</a>.</p>
             </div>
           </div>
         </footer>

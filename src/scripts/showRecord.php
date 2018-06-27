@@ -31,7 +31,7 @@ function show_quote_records($dbc, $query) {
           echo '                <div class="card-body text-center">';
           echo '                  <div class="card-body">';
           echo '                    <form method="POST">';
-          echo '                      <div style="position:absolute; top:60px; right:10px;" ><input type="submit" class="btn btn-outline-success pull-right" name="btnDelete" data-toggle="modal" data-target="cfrmDel" value="×"></div>';
+          echo '                      <div style="position:absolute; top:60px; right:10px;" ><input type="submit" class="btn btn-outline-danger pull-right" name="btnDelete" data-toggle="modal" data-target="#cfrmDel" value="×"></div>';
           echo '                      <input type=hidden value='. $row['q_id'] .' name=submit_btn_id >';
           echo '                    </form>';
           echo '                    <h5 class="card-title">' . $row['quote'] . '<h3>';
@@ -56,7 +56,7 @@ function show_quote_records($dbc, $query) {
             echo '                <div class="card-body text-center">';
             echo '                  <div class="card-body">';
             echo '                    <form method="POST">';
-            echo '                      <div style="position:absolute; top:60px; right:10px;" ><input type="button" class="btn btn-outline-success pull-right" data-toggle="modal" data-target="#cfrmDel" value="×"></div>';
+            echo '                      <div style="position:absolute; top:60px; right:10px;" ><input type="button" class="btn btn-outline-danger pull-right" data-toggle="modal" data-target="#cfrmDel" value="×"></div>';
             echo '                      <input type=hidden value='. $row['q_id'] .' name=submit_btn_id >';
             echo '                    </form>';
             echo '                    <h5 class="card-title">' . $row['quote'] . '<h3>';
@@ -82,7 +82,7 @@ function show_quote_records($dbc, $query) {
             echo '                <div class="card-body text-center">';
             echo '                  <div class="card-body">';
             echo '                    <form method="POST">';
-            echo '                      <div style="position:absolute; top:60px; right:10px;" ><input type="submit" class="btn btn-outline-success pull-right" data-toggle="modal" data-target="cfrmDel" name="btnDelete" value="×"></div>';
+            echo '                      <div style="position:absolute; top:60px; right:10px;" ><input type="submit" class="btn btn-outline-danger pull-right" data-toggle="modal" data-target="cfrmDel" name="btnDelete" value="×"></div>';
             echo '                      <input type=hidden value='. $row['q_id'] .' name=submit_btn_id >';
             echo '                    </form>';
             echo '                    <h5 class="card-title">' . $row['quote'] . '<h3>';

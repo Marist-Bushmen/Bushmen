@@ -1,9 +1,9 @@
-version: "2"
+version: "3"
 services:
     www:
-        build: .
+        build: ./src/.
         ports:
-            - "80:80"
+            - "83:80"
         volumes:
             - ./src:/var/www/html/
         links:
@@ -11,28 +11,14 @@ services:
         networks:
             - default
     db:
-        image: mysql:5.7.13
+        build: ./db/.
+        restart: always
         ports:
             - "3306:3306"
         environment:
-            MYSQL_DATABASE: Quotes_db
-            MYSQL_USER: admin
-            MYSQL_PASSWORD: dng
-            MYSQL_ROOT_PASSWORD: root
-        volumes:
-            - ./src:/docker-entrypoint-initdb.d
-            - persistent:/var/lib/mysql
+            MYSQL_DATABASE: null
+            MYSQL_USER: null
+            MYSQL_PASSWORD: null
+            MYSQL_ROOT_PASSWORD: null
         networks:
             - default
-    # phpmyadmin:
-    #     image: phpmyadmin/phpmyadmin
-    #     links:
-    #         - db:db
-    #     ports:
-    #         - 8000:80
-    #     environment:
-    #         MYSQL_USER: user
-    #         MYSQL_PASSWORD: test
-    #         MYSQL_ROOT_PASSWORD: test
-volumes: 
-    persistent:
