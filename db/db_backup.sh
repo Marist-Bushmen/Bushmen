@@ -10,7 +10,7 @@ password="null"
 db_name="null"
 
 #Path to data backups
-backup_path="/home/dgisolfi/projects/bushmen-site/dataDumps"
+backup_path="/home/dgisolfi/projects/bushmen-site/dataDumps/backup"
 #backup_path="/Users/daniel/code-repos/Bushmen/data"
 date=$(date +"%d-%b-%Y")
 

@@ -37,7 +37,7 @@ docker_image:
 	@# Note: If docker account "dan36911" is not used; This command required
 	@echo "\n				Creating bushmen-site docker image"
 	@# @ln -s /Users/daniel/code-repos/Blockchain/lib /Users/daniel/code-repos/Blockchain/src
-	@docker build -t bushmen-site .
+	@docker build -t bushmen-site ./src/.
 
 dev_container:
 	@# This command should be run from the local computer

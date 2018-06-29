@@ -10,7 +10,7 @@ Version 1.0 -->
 
 # Otherwise fail gracefully and explain the error.
 
-$dbc = @mysqli_connect ( 'db', 'null', 'null', 'null' )
+$dbc = @mysqli_connect ( 'null', 'null', 'null', 'null' )
 
 
 OR die ( mysqli_connect_error() ) ;
