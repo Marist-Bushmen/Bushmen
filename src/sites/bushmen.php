@@ -50,6 +50,14 @@
       </form>
     </div>
   </nav>
+ <div class="alert alert-danger" role="alert">
+     <strong>ALERT!</strong> — Be aware that the delete feature is still in development and will
+     prompt you to confirm a delete but will not delete quotes. If a quote needs
+     to be deleted in the meantime contact the Admin.
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+     </button>
+</div>
 
     <div class="jumbotron jumbotron-fluid text-white bg-dark text-center">
         <div class="container" style="height="10%"">
@@ -72,6 +80,7 @@
                          <p>Are you sure you want to remove this quote from the database?</p>
                      </div>
                      <div class="modal-footer">
+                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                          <form method="POST">
                              <input type=hidden value="<?php if(isset($_POST['submit_btn_id'])) echo $_POST['submit_btn_id'];?>" name="btn_id" >
                              <input type="submit" class="btn btn-danger" name="reply" data-dismiss="modal" value="Fuck that Quote">

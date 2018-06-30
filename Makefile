@@ -44,7 +44,7 @@ dev_container:
 	@echo "\n Creating Docker container"
 	@#dq;elrkgsocker pull ${DOCKER_IMAGE}
 	@#wenfdocker run -it --name bushmen_devtest --rm -p 80:80 -v ${PWD}:/DNG ${DOCKER_IMAGE} bash
-	@docker run --rm -p 80:80 -v /Users/daniel/code-repos/Bushmen/src:/var/www/html/ bushmen-site
+	@docker run --rm -p 82:80 -v /Users/daniel/code-repos/Bushmen/src:/var/www/html/ bushmen-site
 publish_image: docker_image
 	@echo "\n				Create bushmen-site docker image..."
 	@#docker login

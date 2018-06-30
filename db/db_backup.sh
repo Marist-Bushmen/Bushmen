@@ -4,21 +4,16 @@
 #and backup the DB
 
 # Database credentials
-host="null"
-user="null"
-password="null"
-db_name="null"
+MYSQL_ROOT_PASSWORD="null"
 
 #Path to data backups
-backup_path="/home/dgisolfi/projects/bushmen-site/dataDumps/backup"
-#backup_path="/Users/daniel/code-repos/Bushmen/data"
+backup_path="/home/dgisolfi/projects/bushmen-site/db/backup"
 date=$(date +"%d-%b-%Y")
 
 # Set default file permissions
 umask 177
 
 # Dump database into SQL file
-docker exec bushmen_db_1 mysqldump --user=$user --password=$password --host=$host $db_name > $backup_path/$db_name-$date.sql
+docker exec bushmensite_db_1 sh -c 'exec mysqldump --all-databases -uroot -p"$MYSQL_ROOT_PASSWORD"' > $backup_path/$date.sql
 
-# Delete files older than 15 days
-# find $backup_path/* -mtime +15 -exec rm {} \;
+#TODO: Remove files older than 30 days

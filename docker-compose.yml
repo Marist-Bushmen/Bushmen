@@ -8,7 +8,6 @@ services:
             - db
         networks:
             - default
-
     db:
         image: mysql:5.7.13
         restart: always
