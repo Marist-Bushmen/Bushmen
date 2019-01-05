@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <meta name="author"             content="Daniel Nicolas Gisolfi" />
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'bushmen/favicon/favicon.ico' %}"/>
+        <title>Bushmen | {% block title %}{% endblock title %}</title>
+       
+        <!-- Favicon Links -->
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'bushmen/favicon/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'bushmen/favicon/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'bushmen/favicon/favicon-16x16.png' %}">
+        <link rel="manifest" href="{% static 'bushmen/favicon/site.webmanifest' %}">
+        <link rel="mask-icon" href="{% static 'bushmen/favicon/safari-pinned-tab.svg' %}" color="#000000">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="theme-color" content="#ffffff">
+
+         <!-- Bootstrap -->
+        <link rel="stylesheet" href="{% static 'bushmen/vendors/bootstrap-4.1.3-dist/css/bootstrap.min.css' %}">
+        <!-- THEME -->
+        {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'bushmen/vendors/LuxTheme.min.css' %}"> {% endcomment %}
+        <!-- Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="{% static 'bushmen/style.css' %}">
+        {% block links %}
+        {% endblock links %}
+    </head>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/quotes">Bushmen</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" id="quotes" href="/quotes">Quotes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="add-quotes" href="/add/quotes">Add Quote</a>
+                </li>
+            </ul>
+            <form method="POST" class="form-inline my-2 my-lg-0">
+                {% csrf_token %}
+                <span class="form-control mr-sm-2">{{ search }}</span>
+                {% comment %} <input class="form-control mr-sm-2" name="SearchVAR" placeholder="Search" type="text"> {% endcomment %}
+                <button class="btn btn-secondary my-2 my-sm-0 bg-dark" name="search" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <body>
+        {% block heading %}
+        {% endblock heading %}
+        <div class="container-fluid">
+            {% block body %}
+            {% endblock body %}
+        </div>
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="{% static 'bushmen/vendors/jquery.min.js' %}"></script>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="{% static 'bushmen/vendors/bootstrap-4.1.3-dist/js/bootstrap.min.js' %}"></script>
+    </body>
+
+{% block scripts %}
+{% endblock scripts %}
+
+

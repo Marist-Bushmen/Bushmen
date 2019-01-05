@@ -1,3 +1,6 @@
 .DS_Store
-*.sql
-deploy_bushmen.sh
+.vscode
+.vscode
+*.pyc
+legacy
+docker-compose.yml

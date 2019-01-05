@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Quotes{% endblock title %}
+
+{% comment %} loads all static files {% endcomment %}
+{% load static %}
+
+{% block heading %}
+<div class="jumbotron jumbotron-fluid text-white bg-dark text-center">
+    <div class="container heading">
+        <h1>Add Quote</h1>
+        <p>Add a new quote to the list! All existing quotes can be found on the home page.
+        Context is not required however all other fields are. Make sure the date is in YYYY-MM-DD format, 
+        and don't include the time.</p>
+    </div>
+</div>
+{% endblock heading %}
+
+{% block body %}
+{% endblock body %}
+
+{% block scripts %}
+<script>
+$('#add-quotes').addClass('active');
+</script>
+{% endblock scripts %}
+

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Quotes{% endblock title %}
+
+{% comment %} loads all static files {% endcomment %}
+{% load static %}
+
+{% block heading %}
+<div class="jumbotron jumbotron-fluid text-white bg-dark text-center">
+    <div class="container heading">
+        <h1>Bushmen Quotes</h1>
+        <p>Words uttered by various members of the Bushmen throughout the years </p>
+    </div>
+</div>
+{% endblock heading %}
+
+{% block body %}
+{% endblock body %}
+
+{% block scripts %}
+<script>
+$('#quotes').addClass('active');
+</script>
+{% endblock scripts %}
+
