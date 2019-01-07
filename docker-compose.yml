@@ -1,25 +1,26 @@
-version: "2"
+version: "3"
 services:
     site:
-        image: dgisolfi/bushmen-site:latest
-        ports:
-            - "82:80"
-        depends_on:
-            - db
-        networks:
-            - default
+      # image: dgisolfi/bushmen-site:latest
+      build: .
+      ports:
+        - "80:80"
+      volumes:
+        - ./server:/server
+      container_name: bushmen_dev
+      depends_on:
+        - db
+    
     db:
-        image: mysql:5.7.13
-        restart: always
-        ports:
-            - "3306:3306"
-        volumes:
-            - "./db/master.sql:/docker-entrypoint-initdb.d/master.sql"
-            - "./db/db_init.sh:/docker-entrypoint-initdb.d/db_init.sh"
-        environment:
-            MYSQL_DATABASE: null
-            MYSQL_USER: null
-            MYSQL_PASSWORD: null
-            MYSQL_ROOT_PASSWORD: null
-        networks:
-            - default
+      image: postgres:11
+      restart: always
+      ports:
+        - "5432:5432"
+      container_name: database
+      volumes:
+        - ./db/quotes.sql:/docker-entrypoint-initdb.d/quotes.sql
+      hostname: "db"
+      environment:
+        POSTGRES_USER: daniel
+        POSTGRES_PASSWORD: Red0nions
+        POSTGRES_DB: bushmen

@@ -4,3 +4,4 @@
 *.pyc
 legacy
 docker-compose.yml
+db

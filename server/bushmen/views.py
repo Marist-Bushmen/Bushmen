@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.http import HttpResponsePermanentRedirect
 from django.views.generic import TemplateView
 from django.shortcuts import render, redirect
+from .db_helper import *
 from .forms import *
 # import requests
 import json
@@ -13,9 +14,12 @@ class Index(TemplateView):
         return HttpResponsePermanentRedirect('quotes')
 
 class Quotes(TemplateView):
+
+    # Get all Quotes from the DB
     view_args = {
-        'quotes': 'fish',
+        'quotes': getQuotes(),
     }
+
     search = SearchForm()
     view_args['search'] = search
     if search.is_valid():
@@ -30,13 +34,9 @@ class Quotes(TemplateView):
 class AddQuote(TemplateView):
     # addQuote = AddQuoteForm()
 
-
-
     view_args = {
 
     }
-
-
 
     def get(self, request):
             return render(request, 'bushmen/AddQuote.html')
