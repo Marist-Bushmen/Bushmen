@@ -12,3 +12,16 @@ function confirmDelete(qid) {
 
     $(`[name=qid]`).val(qid);
 }
+
+function searchByAuthor(author) {
+    $(`[name=query]`).val(`author=${author}`);
+    $( `[name=search]`).trigger( "click" );
+}
+
+function checkErr(err) {
+    if (err == 1) {
+        $('#success').removeClass('collapse');
+    } else {
+        $('#failure').removeClass('collapse');
+    }
+}

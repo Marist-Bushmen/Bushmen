@@ -27,7 +27,7 @@
                         
                         <p class="card-text">{{ quote.quote }}</p>
                         <p class="card-subtitle mb-2 text-muted">{{ quote.context }}</p>
-                        <a href="#" class="card-link">All {{ quote.author }} Quotes</a>
+                        <a class="card-link" href="" onclick="searchByAuthor({{ quote.author }})">All {{ quote.author }} Quotes</a>
                     </div>
                 </div>
             </div>

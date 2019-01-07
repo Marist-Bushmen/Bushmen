@@ -16,16 +16,22 @@ body {
 .CustomNav{
     background-color:#212121; 
 }
-.navbar-brand, .nav-link {
+.navbar-brand {
     color: #ffffff
 }
 
 .navbar-brand:hover  {
     color: #ffffff
 }
-
-.nav-link:hover {
+.nav-link  {
     color: lightslategray
+}
+.nav-link:hover {
+    color: #ffffffff
+}
+
+.nav-link:active {
+    color: #ffffffff !important
 }
 
 .search_button {

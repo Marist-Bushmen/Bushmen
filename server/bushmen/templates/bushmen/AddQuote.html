@@ -7,17 +7,39 @@
 
 {% block heading %}
 <h1>Add Quote</h1>
-<p>Add a new quote to the list! All existing quotes can be found on the home page.
-Context is not required however all other fields are. Make sure the date is in YYYY-MM-DD format, 
-and don't include the time.</p>
+<p>Add a new quote to the list! All existing quotes can be found on the home page.</p>
 {% endblock heading %}
-
 {% block body %}
+    <div class="row">
+        <div class="container" style="margin-top:40px">
+            <div class="col-md-12 col-lg-12" style="padding-bottom:15px;">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Add Record Below<span class="card-subtitle mb-2 text-muted" style="font-size:15px;"></span></h5>
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ AddQuote.name }}
+                            <br>
+                            {{ AddQuote.quote }}
+                            <br>
+                            {{ AddQuote.context }}
+                            <br>
+                            {{ AddQuote.date }}
+                            <br>
+                            <button class="btn btn-primary my-2 my-sm-0 border-0" onclick="checkErr('{{err}}')" type="submit">Add Quote</button>
+                        </form>
+                        <p class="card-subtitle mb-2 text-muted"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock body %}
 
 {% block scripts %}
+
 <script>
-$('#add-quotes').addClass('active');
+$('#add-quotes').addClass('active')
 </script>
 {% endblock scripts %}
 

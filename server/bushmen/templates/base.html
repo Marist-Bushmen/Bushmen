@@ -43,14 +43,26 @@
             </ul>
             <form method="POST" class="form-inline my-2 my-lg-0">
                 {% csrf_token %}
-                <span class="form-control mr-sm-2">{{ search }}</span>
-                {% comment %} <input class="form-control mr-sm-2" name="SearchVAR" placeholder="Search" type="text"> {% endcomment %}
+                {{ search }}
                 <button class="btn btn-secondary my-2 my-sm-0 search_button border-0" name="search" type="submit">Search</button>
             </form>
         </div>
     </nav>
 
     <body>
+        <div class="alert alert-info collapse" id="success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Request Completed</strong> Quote added to the database.
+        </div>
+
+         <div class="alert alert-danger collapse" id="failure" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Request Not Completed</strong> There was an error completing your request, please contact site owner.
+        </div>
        
         <div class="h-50 jumbotron jumbotron-fluid text-white text-center heading-jumbo">
             <div class="container heading">
@@ -58,7 +70,7 @@
             {% endblock heading %}
             </div>
         </div>
-      
+
         <div class="container-fluid">
             {% block body %}
             {% endblock body %}

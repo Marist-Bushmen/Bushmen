@@ -35,12 +35,12 @@ def query(sql):
             return results
     except Exception as e:
         print (e)
+        return False
 
 def makeQuoteDict(quotes):
     results = []
 
     for quote in quotes:
-        print(quote[4])
         q = {
             'qid':quote[0],
             'quote':quote[1],
@@ -53,8 +53,6 @@ def makeQuoteDict(quotes):
     return results
    
 
-
-
 def getQuotes():
     # Get a DB connection
 
@@ -66,3 +64,49 @@ def getQuotes():
     
     return makeQuoteDict(quotes)
 
+def searchQuotes(inquiry):
+    clause = ''
+    if 'author=' in inquiry:
+        inquiry = inquiry.split('=')[1]
+        clause = f'WHERE author LIKE \'{inquiry}\''
+    else:
+        clause = f'WHERE quote LIKE \'{inquiry}\''
+
+    sql = f"""
+        SELECT *
+        FROM quotes
+        {clause}
+        ORDER BY date DESC;
+    """
+    quotes = query(sql)
+    
+    return makeQuoteDict(quotes)
+
+def createQuote(*args):
+    author = args[0]
+    quote = args[1]
+    context = args[2]
+    date = args[3]
+
+    sql = f"""
+        INSERT INTO Quotes (quote, author, q_date, q_descr)
+        VALUES ('{quote}','{author}', '{date}', '{context}');
+    """
+
+    insert = query(sql)
+
+    if not insert:
+        return 0
+    return 1
+
+def deleteQuote(qid):
+    sql = f"""
+        DELETE 
+        FROM Quotes
+        WHERE qid={qid};
+    """
+    delete = query(sql)
+
+    if not delete:
+        return 0
+    return 1
