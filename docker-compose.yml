@@ -4,7 +4,7 @@ services:
       # image: dgisolfi/bushmen-site:latest
       build: .
       ports:
-        - "80:80"
+        - "82:80"
       volumes:
         - ./server:/server
       container_name: bushmen_dev

@@ -54,11 +54,11 @@ def makeQuoteDict(quotes):
    
 
 def getQuotes():
-    # Get a DB connection
 
     sql = """
         SELECT *
         FROM Quotes
+        ORDER BY q_date DESC;
     """
     quotes = query(sql)
     
@@ -68,17 +68,22 @@ def searchQuotes(inquiry):
     clause = ''
     if 'author=' in inquiry:
         inquiry = inquiry.split('=')[1]
-        clause = f'WHERE author LIKE \'{inquiry}\''
+        clause = f"WHERE author LIKE '{inquiry}'"
     else:
-        clause = f'WHERE quote LIKE \'{inquiry}\''
+        clause = f"""
+                WHERE quote LIKE '{inquiry}' or 
+                author LIKE '{inquiry}' or
+                q_descr LIKE '{inquiry}'
+                """
 
     sql = f"""
         SELECT *
         FROM quotes
         {clause}
-        ORDER BY date DESC;
+        ORDER BY q_date DESC;
     """
     quotes = query(sql)
+    print(quotes)
     
     return makeQuoteDict(quotes)
 

@@ -14,9 +14,17 @@ function confirmDelete(qid) {
 }
 
 function searchByAuthor(author) {
-    $(`[name=query]`).val(`author=${author}`);
-    $( `[name=search]`).trigger( "click" );
+    
+    // $( ``).trigger( "click" );
 }
+
+
+// $(document).ready(function() { 
+//     $('.SearchByAuthor').click(function() {
+//         $(`[name=query]`).val(`author=dan`);
+//         $('[name=search]').submit();
+//     });
+// });
 
 function checkErr(err) {
     if (err == 1) {

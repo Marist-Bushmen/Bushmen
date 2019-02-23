@@ -13,6 +13,7 @@ class Index(TemplateView):
     def get(self, request):
         return HttpResponsePermanentRedirect('quotes')
 
+# @never_cache
 class Quotes(TemplateView):
     # Get all Quotes from the DB
     view_args = {
@@ -22,22 +23,27 @@ class Quotes(TemplateView):
     def get(self, request):
         search = SearchForm()
         self.view_args['search'] = search
+        self.view_args['quotes'] = getQuotes()
         return render(request, 'bushmen/quotes.html', self.view_args)
 
     def post(self, request):
+        self.view_args['quotes'] = getQuotes()
         if 'delete' in request.POST:
             qid = request.POST.get('qid', '')
             self.view_args['err'] = deleteQuote(qid)
-            return redirect('quotes')
+            self.view_args['quotes'] = getQuotes()
+            return HttpResponsePermanentRedirect('quotes')
+            # return render(request, 'bushmen/quotes.html', self.view_args)
 
         search = SearchForm(request.POST)
         self.view_args['search'] = search
         if search.is_valid():
             query = search.cleaned_data['query']
             self.view_args['quotes'] = searchQuotes(query)
+
         return render(request, 'bushmen/quotes.html', self.view_args)
             
-
+# @never_cache
 class AddQuote(TemplateView):
     view_args = {}
 
