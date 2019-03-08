@@ -68,12 +68,12 @@ def searchQuotes(inquiry):
     clause = ''
     if 'author=' in inquiry:
         inquiry = inquiry.split('=')[1]
-        clause = f"WHERE author LIKE '{inquiry}'"
+        clause = f"WHERE author LIKE '%{inquiry}%' or author LIKE '{inquiry}%' or author LIKE '%{inquiry}'"
     else:
         clause = f"""
-                WHERE quote LIKE '{inquiry}' or 
-                author LIKE '{inquiry}' or
-                q_descr LIKE '{inquiry}'
+                WHERE quote LIKE '%{inquiry}%' or quote LIKE '{inquiry}%' or quote LIKE '%{inquiry}' or 
+                author LIKE '%{inquiry}%' or author LIKE '{inquiry}%' or author LIKE '%{inquiry}' or
+                q_descr LIKE '%{inquiry}%' or q_descr LIKE '{inquiry}%' or q_descr LIKE '%{inquiry}'
                 """
 
     sql = f"""
@@ -82,6 +82,7 @@ def searchQuotes(inquiry):
         {clause}
         ORDER BY q_date DESC;
     """
+    print(sql)
     quotes = query(sql)
     print(quotes)
     
