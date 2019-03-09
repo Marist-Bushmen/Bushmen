@@ -29,21 +29,21 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg CustomNav">
         <a class="navbar-brand" href="/quotes">Bushmen</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler  custom-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon expand"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" id="quotes" href="/quotes">Quotes</a>
+                    <a class="nav-link" id="quotes" href="/quotes/">Quotes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="add-quotes" href="/add/quotes">Add Quote</a>
+                    <a class="nav-link" id="add-quotes" href="/quotes/add/">Add Quote</a>
                 </li>
             </ul>
-            <form method="POST" class="form-inline my-2 my-lg-0">
+            <form method="POST" id="search" class="form-inline my-2 my-lg-0">
                 {% csrf_token %}
-                {{ search }}
+                {{ search.query }}
                 <button class="btn btn-secondary my-2 my-sm-0 search_button border-0" name="search" type="submit">Search</button>
             </form>
         </div>
@@ -71,7 +71,7 @@
             </div>
         </div>
 
-        <div class="container-fluid">
+        <div style="padding-top: 55px;" class="container-fluid">
             {% block body %}
             {% endblock body %}
         </div>

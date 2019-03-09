@@ -5,6 +5,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.Index.as_view(),name='index'),
-    url(r'^quotes', never_cache(views.Quotes.as_view()), name='quotes'),
-    url(r'^add/quotes', views.AddQuote.as_view(), name='add quotes'),
+    url(r'^quotes/add/', views.AddQuote.as_view(), name='add quotes'),
+    url(r'^quotes/', never_cache(views.Quotes.as_view()), name='quotes'),
+   
 ]

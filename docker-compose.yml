@@ -5,8 +5,8 @@ services:
       build: .
       ports:
         - "82:80"
-      volumes:
-        - ./server:/server
+      # volumes:
+      #   - ./server:/server
       container_name: bushmen_dev
       depends_on:
         - db

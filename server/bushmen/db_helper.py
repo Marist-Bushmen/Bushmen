@@ -56,7 +56,7 @@ def makeQuoteDict(quotes):
 def getQuotes():
 
     sql = """
-        SELECT *
+        SELECT qid, quote, author, date(q_date), q_descr
         FROM Quotes
         ORDER BY q_date DESC;
     """
@@ -77,14 +77,13 @@ def searchQuotes(inquiry):
                 """
 
     sql = f"""
-        SELECT *
+        SELECT qid, quote, author, date(q_date), q_descr
         FROM quotes
         {clause}
         ORDER BY q_date DESC;
     """
-    print(sql)
+    
     quotes = query(sql)
-    print(quotes)
     
     return makeQuoteDict(quotes)
 

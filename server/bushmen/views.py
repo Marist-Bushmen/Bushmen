@@ -70,6 +70,6 @@ class AddQuote(TemplateView):
             context = addQuote.cleaned_data['context']
             date = addQuote.cleaned_data['date']
             self.view_args['err'] = createQuote(name, quote, context, date)
-        return render(request, 'bushmen/AddQuote.html', self.view_args)
+            return HttpResponsePermanentRedirect('/quotes/')
 
 
